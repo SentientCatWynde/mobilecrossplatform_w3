@@ -1,0 +1,7 @@
+{
+  "name": "mobilecrossplatform_w3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
