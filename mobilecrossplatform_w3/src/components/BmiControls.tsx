@@ -10,14 +10,16 @@ import {
 
 export const BmiControls: React.FC<{onCalculate: () => void; onReset: () => void}> = props => {
     return (
-        <IonRow className = "ion-text-center ion-margin" >
+        <IonRow  className = "ion-text-center ion-margin" >
+            <IonCol></IonCol>
             <IonCol>
       {/* Calculate your inputted BMI */}
               <IonButton onClick = {props.onCalculate} color = 'warning' >
                 Count
-                <IonIcon slot = "start" icon = {calculator} ></IonIcon>
+                <IonIcon class = 'icon-margin' slot = "start" icon = {calculator} ></IonIcon>
               </IonButton>
             </IonCol>
+            <IonCol></IonCol>
             <IonCol >
       {/* Reset Inputted BMI */}
               <IonButton onClick = {props.onReset} color = 'warning' >
@@ -25,6 +27,7 @@ export const BmiControls: React.FC<{onCalculate: () => void; onReset: () => void
                 <IonIcon slot = "start" icon = {refreshOutline} ></IonIcon>
               </IonButton>
             </IonCol>
+            <IonCol></IonCol>
           </IonRow>
     );
 };
