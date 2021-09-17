@@ -5,29 +5,27 @@ import {
     } from '@ionic/react';
 
 import {
-    calculator, refreshOutline
+    calculator, refreshCircle
     } from 'ionicons/icons';
 
 export const BmiControls: React.FC<{onCalculate: () => void; onReset: () => void}> = props => {
     return (
         <IonRow  className = "ion-text-center ion-margin" >
-            <IonCol></IonCol>
-            <IonCol>
+            
+            <IonCol size = '12' size-md = '6'  >
       {/* Calculate your inputted BMI */}
-              <IonButton onClick = {props.onCalculate} color = 'warning' >
-                Count
+              <IonButton expand = 'block' color = 'success' onClick = {props.onCalculate}  >
+                Calculate
                 <IonIcon class = 'icon-margin' slot = "start" icon = {calculator} ></IonIcon>
               </IonButton>
             </IonCol>
-            <IonCol></IonCol>
-            <IonCol >
+            <IonCol size = '12' size-md = '6' >
       {/* Reset Inputted BMI */}
-              <IonButton onClick = {props.onReset} color = 'warning' >
+              <IonButton fill = 'clear' color = 'medium' onClick = {props.onReset}  >
                 Reset
-                <IonIcon slot = "start" icon = {refreshOutline} ></IonIcon>
+                <IonIcon slot = "start" icon = {refreshCircle} ></IonIcon>
               </IonButton>
             </IonCol>
-            <IonCol></IonCol>
           </IonRow>
     );
 };

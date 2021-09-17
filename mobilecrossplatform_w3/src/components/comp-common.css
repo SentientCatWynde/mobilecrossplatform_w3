@@ -1,0 +1,29 @@
+ion-card {
+    --color: black;
+}
+
+.ion-default-card {
+    --background: grey;
+}
+
+.ion-card-success {
+    --background: springgreen;
+}
+
+.ion-card-warning{
+    --background: yellow;
+}
+
+.ion-card-danger{
+    --background: crimson;
+}
+
+#result p {
+    font-size: 1rem;
+}
+
+#result h3 {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    font-weight: bold;
+}

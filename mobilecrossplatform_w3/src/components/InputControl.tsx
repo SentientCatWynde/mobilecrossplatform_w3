@@ -12,12 +12,12 @@ const InputControl: React.FC<{
         return (
             <IonSegment value = {props.selectedValue} onIonChange = {inputChangeHandler} >
                 <IonSegmentButton value = "cmkg" onClick = {props.onReset} >
-                    <IonLabel>
+                    <IonLabel color = 'medium' >
                         cm | Kg
                     </IonLabel>
                 </IonSegmentButton>
                 <IonSegmentButton value = "ftlbs" onClick = {props.onReset}>
-                    <IonLabel>
+                    <IonLabel color = 'medium' >
                         feet | lbs
                     </IonLabel>
                 </IonSegmentButton>

@@ -97,8 +97,8 @@ const BmrCalc: React.FC = () => {
         />
         <IonApp>
             <IonHeader>
-                <IonToolbar  color = 'warning' >
-                    <IonButton routerLink = '/home' class = 'ion-margin' color = 'warning' >
+                <IonToolbar color = 'primary' >
+                    <IonButton routerLink = '/home' class = 'ion-margin' >
                     <IonIcon class = 'ion-margin' slot = "start" icon = {arrowBack} ></IonIcon>
                     </IonButton>
                     <IonLabel class = 'ion-margin-top ion-text-center ion-margin ion-padding-vertical' >
@@ -123,10 +123,10 @@ const BmrCalc: React.FC = () => {
                     <IonRow>
                         <IonCol>
                             <IonItem>
-                                <IonLabel position = 'floating'>
-                                    Age
+                                <IonLabel color = 'light' position = 'floating'>
+                                    Input Age
                                 </IonLabel>
-                                <IonInput ref = {ageInputRef}></IonInput>
+                                <IonInput color = 'light' ref = {ageInputRef}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -136,16 +136,16 @@ const BmrCalc: React.FC = () => {
                             <IonList>
                                 <IonRadioGroup onIonChange={e => setSelected(e.detail.value)}>
                                     <IonListHeader>
-                                        <IonLabel>Gender</IonLabel>
+                                        <IonLabel color = 'light' >Gender</IonLabel>
                                     </IonListHeader>
 
                                     <IonItem>
-                                        <IonLabel>Male</IonLabel>
+                                        <IonLabel color = 'light' >Male</IonLabel>
                                     <IonRadio slot="start" value="Male" />
                                     </IonItem>
 
                                     <IonItem>
-                                    <IonLabel>Female</IonLabel>
+                                    <IonLabel color = 'light' >Female</IonLabel>
                                     <IonRadio slot="start" value="Female" />
                                     </IonItem>
                                 </IonRadioGroup>
@@ -157,31 +157,39 @@ const BmrCalc: React.FC = () => {
                     <IonRow >
                         <IonCol>
                         <IonItem>
-                            <IonLabel position = 'floating'>
+                            <IonLabel color = 'light' position = 'floating'>
                                 Input Body Height [{measurementUnit === 'cmkg' ? ' cm ' : ' feet | in decimal '}]
                             </IonLabel>
-                            <IonInput ref = {heightInputRef} ></IonInput>
+                            <IonInput color = 'light' ref = {heightInputRef} ></IonInput>
                         </IonItem>
                         </IonCol>
                     </IonRow>
                     <IonRow >
                         <IonCol>
                         <IonItem>
-                            <IonLabel position = 'floating'>
+                            <IonLabel color = 'light' position = 'floating'>
                                 Input Body Weight [{measurementUnit === 'cmkg' ? ' Kg ' : ' lbs '}]
                             </IonLabel>
-                            <IonInput ref = {weightInputRef} ></IonInput>
+                            <IonInput color = 'light' ref = {weightInputRef} ></IonInput>
                         </IonItem>
                         </IonCol>
                     </IonRow>
                     <BmiControls onCalculate = {calculateBMR} onReset = {reset} ></BmiControls>
                     </div>
-                    {show && <BmrResults bmrVal = {calculatedBMR}/>}
+                    {show && 
+                    <IonRow>
+                        <IonCol size = '2' ></IonCol>
+                        <IonCol size = '8' >
+                        <BmrResults bmrVal = {calculatedBMR}/>
+                        </IonCol>
+                        <IonCol size = '2' ></IonCol>
+                    </IonRow>
+                    }
                     {/* BMR RESULTS */}
                 </IonGrid>
             </IonContent>
             <IonFooter>
-            <IonToolbar color = 'warning' class = 'ion-text-sm-center ion-padding-horizontal'>
+            <IonToolbar class = 'ion-text-sm-center ion-padding-horizontal'>
                 Kalkulator BMI,  LAB Week 2 
             </IonToolbar>
             </IonFooter>

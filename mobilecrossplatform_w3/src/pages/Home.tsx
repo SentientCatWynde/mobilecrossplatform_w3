@@ -6,17 +6,19 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color = 'primary' >
           <IonTitle> Calculators</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className = 'ion-padding' fullscreen>
         <IonGrid>
           <IonRow>
+          <IonTitle color = 'light' size="large"> 29584 - Gusti Billi </IonTitle>
+          </IonRow>
+          <IonRow>
             <IonCol>
-            <IonTitle size="large"> 00000029584 - Gusti Bagus Bill Isai Gian </IonTitle>
-            <IonButton color = 'warning' expand = 'block' routerLink = '/bmi'> BMI Calculator</IonButton>
-            <IonButton color = 'warning' expand = 'block' routerLink = '/bmr'> BMR Calculator</IonButton>
+            <IonButton expand = 'block' routerLink = '/bmi'> BMI Calculator</IonButton>
+            <IonButton expand = 'block' routerLink = '/bmr'> BMR Calculator</IonButton>
             </IonCol>
             <IonCol></IonCol>
             <IonCol></IonCol>

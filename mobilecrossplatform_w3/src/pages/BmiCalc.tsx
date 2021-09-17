@@ -1,5 +1,5 @@
 import { IonApp, IonPage, IonHeader, IonFooter, IonIcon,
-    IonToolbar, IonTitle, IonGrid, IonRow, IonCol, IonButton,
+    IonToolbar,  IonGrid, IonRow, IonCol, IonButton,
     IonContent, IonItem, IonLabel, IonInput, IonAlert
    } from '@ionic/react';
 
@@ -19,6 +19,8 @@ const BmiCalc: React.FC = () => {
     const [ calculatedBMI, setCalculatedBMI ] = useState<number>(0);
     const [ bmiCategory, setBMICategory ] = useState<String>('BMI Category');
     const [ measurementUnit, setMeasUnit ] = useState<'cmkg' | 'ftlbs'>('cmkg');  
+
+    var first : Boolean = false;
   
     const unparsing = (unparse: String) => {
       return unparse.split(' ')[0];
@@ -33,6 +35,8 @@ const BmiCalc: React.FC = () => {
       var meow : Boolean = true;
       var bmi : number = 0;
       var bmiCat : String = 'BMI Category';
+      first = true;
+      
     
       if(!weight || !height || +weight <= 0 || +height <= 0 ) {
         setError('Please enter a valid (non-negative) input number');  
@@ -102,6 +106,7 @@ const BmiCalc: React.FC = () => {
       weightInputRef.current!.value = '';
       heightInputRef.current!.value = '';
       var meow : Boolean = false; 
+      first = false;
       var defaultBMIVal : number = 0;
       var defaultBMICategory : String = 'BMI Category';
   
@@ -129,23 +134,22 @@ const BmiCalc: React.FC = () => {
     <IonApp>
       <IonPage>
         <IonHeader >
-          <IonToolbar color = 'warning' >
-          <IonButton routerLink = '/home' class = 'ion-margin' color = 'warning' >
+          <IonToolbar color = 'primary' >
+          <IonButton routerLink = '/home' class = 'ion-margin' >
           <IonIcon class = 'ion-margin' slot = "start" icon = {arrowBack} ></IonIcon>
           </IonButton>
           <IonLabel class = 'ion-margin-top ion-text-center ion-margin ion-padding-vertical' >
-              BMR Calculator
+              BMI Calculator
           </IonLabel>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen className = "ion-padding" >
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">BMI Calc</IonTitle>
-            </IonToolbar>
-          </IonHeader>
+          
           {/* Reads src/components/ExploreContainer.tsx */}
           {/* <ExploreContainer /> */}
+          <IonGrid>
+            <IonRow>
+              <IonCol size-sm = '8' offset-sm = '2' size-md = '8' offset-md = '0.5'>
           <IonGrid >
             <IonRow>
               {/* INPUT CONTROL */}
@@ -156,22 +160,22 @@ const BmiCalc: React.FC = () => {
             <IonRow class = 'ion-margin-horizontal' >
               <IonCol>
                 <IonItem>
-                  <IonLabel position= "floating" >
+                  <IonLabel color = 'light' position= "floating" >
                     Input Body Height [{measurementUnit === 'cmkg' ? ' cm ' : ' feet | in decimal '}]
                   </IonLabel>
         {/* INPUT HEIGHT OF USER TO CHECK FOR BMI */}
-                  <IonInput ref = {heightInputRef} ></IonInput>
+                  <IonInput color = 'light' ref = {heightInputRef} ></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
             <IonRow class = 'ion-margin-horizontal' >
               <IonCol>
                 <IonItem>
-                  <IonLabel position= "floating" >
+                  <IonLabel color = 'light' position= "floating" >
                     Input Body Weight [{measurementUnit === 'cmkg' ? ' Kg ' : ' lbs  '}]
                   </IonLabel>
         {/* INPUT WEIGHT OF USER TO CHECK FOR BMI */}
-                  <IonInput  ref = {weightInputRef} ></IonInput>
+                  <IonInput color = 'light' ref = {weightInputRef} ></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -182,7 +186,7 @@ const BmiCalc: React.FC = () => {
               <IonCol>
         {/*  CALLS THE CALLING CARD THAT SHOWS THE RESULTS */}
                 {show &&  
-                  <BmiResults bmiVal = {calculatedBMI} bmiCat = {bmiCategory} />
+                  <BmiResults bmiVal = {calculatedBMI} bmiCat = {bmiCategory} first = {first} />
                   // <BmiResults></BmiResults>
                  /*  <IonCard class = 'ion-text-center'>
                     <IonCardContent>
@@ -196,10 +200,14 @@ const BmiCalc: React.FC = () => {
               <IonCol></IonCol>
             </IonRow>
           </IonGrid>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+          
         </IonContent>
         {/* Changes to Footer, 3rd and 4th commit, test if sent */}
-        <IonFooter>
-          <IonToolbar color = 'warning' class = 'ion-text-sm-center ion-padding-horizontal'>
+        <IonFooter >
+          <IonToolbar class = 'ion-text-sm-center ion-padding-horizontal'>
             Kalkulator BMI,  LAB Week 2 
           </IonToolbar>
         </IonFooter>

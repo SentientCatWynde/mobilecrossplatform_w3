@@ -1,16 +1,23 @@
 import { IonCard, IonCardContent, IonLabel, IonGrid, IonRow, IonCol } from "@ionic/react";
+import './comp-common.css';
 
 const BmrResults: React.FC<{bmrVal:number}> = props => {
+    const pointPrecision = (val: number) => {
+        return val.toPrecision(6);
+    }
+
     return (
-        <IonCard class = 'ion-text-center'>
+        <IonCard class = 'ion-default-card ion-text-center'>
             <IonCardContent>
                 <IonGrid>
                     <IonRow>
-                        <IonCol>
+                        <IonCol size = '3' ></IonCol>
+                        <IonCol size = '6' >
                         <IonLabel class = 'ion-text-center'>
-                            BMR = {props.bmrVal} Calories/day 
+                            BMR = { pointPrecision( props.bmrVal ) } Calories/day 
                         </IonLabel>
                         </IonCol>
+                        <IonCol size = '3' ></IonCol>
                     </IonRow>
                     {/* Sedentary: little or no exercise: BMR x 1,2
                         Exercise 1-3 times/week: BMR x 1,375
@@ -38,7 +45,7 @@ const BmrResults: React.FC<{bmrVal:number}> = props => {
                             Sedentary: little to no exercise
                         </IonCol>
                         <IonCol class = 'ion-text-right'>
-                            {props.bmrVal * 1.2}
+                            { pointPrecision( props.bmrVal * 1.2 ) }
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -46,7 +53,7 @@ const BmrResults: React.FC<{bmrVal:number}> = props => {
                             Exercise 1 - 3 times/week
                         </IonCol>
                         <IonCol class = 'ion-text-right'>
-                            {props.bmrVal * 1.375}
+                            { pointPrecision( props.bmrVal * 1.375 ) }
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -54,7 +61,7 @@ const BmrResults: React.FC<{bmrVal:number}> = props => {
                             Exercise 4 - 5 times/week
                         </IonCol>
                         <IonCol class = 'ion-text-right'>
-                            {props.bmrVal * 1.55}
+                            { pointPrecision( props.bmrVal * 1.55 ) }
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -62,7 +69,7 @@ const BmrResults: React.FC<{bmrVal:number}> = props => {
                             Daily exercise or intense exercise 3 - 4 times/week
                         </IonCol>
                         <IonCol class = 'ion-text-right'>
-                            {props.bmrVal * 1.725}
+                            { pointPrecision( props.bmrVal * 1.725 ) }
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -70,7 +77,7 @@ const BmrResults: React.FC<{bmrVal:number}> = props => {
                             Intense exercise 6-7 times/week
                         </IonCol>
                         <IonCol class = 'ion-text-right'>
-                            {props.bmrVal * 1.9}
+                            { pointPrecision( props.bmrVal * 1.9 ) }
                         </IonCol>
                     </IonRow>
                 </IonGrid>
