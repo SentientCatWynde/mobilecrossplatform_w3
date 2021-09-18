@@ -19,8 +19,6 @@ const BmiCalc: React.FC = () => {
     const [ calculatedBMI, setCalculatedBMI ] = useState<number>(0);
     const [ bmiCategory, setBMICategory ] = useState<String>('BMI Category');
     const [ measurementUnit, setMeasUnit ] = useState<'cmkg' | 'ftlbs'>('cmkg');  
-
-    var first : Boolean = false;
   
     const unparsing = (unparse: String) => {
       return unparse.split(' ')[0];
@@ -34,9 +32,7 @@ const BmiCalc: React.FC = () => {
       var netWeight, netHeight: number;
       var meow : Boolean = true;
       var bmi : number = 0;
-      var bmiCat : String = 'BMI Category';
-      first = true;
-      
+      var bmiCat : String = 'BMI Category';      
     
       if(!weight || !height || +weight <= 0 || +height <= 0 ) {
         setError('Please enter a valid (non-negative) input number');  
@@ -61,7 +57,7 @@ const BmiCalc: React.FC = () => {
         if(bmi < 18.5){
           bmiCat = 'Underweight';
         }else if(bmi < 25){
-          bmiCat = 'Normal || Healthy';
+          bmiCat = 'Normal';
         }else if(bmi < 30){
           bmiCat = 'Overweight';
         }else if(bmi > 30){
@@ -106,7 +102,6 @@ const BmiCalc: React.FC = () => {
       weightInputRef.current!.value = '';
       heightInputRef.current!.value = '';
       var meow : Boolean = false; 
-      first = false;
       var defaultBMIVal : number = 0;
       var defaultBMICategory : String = 'BMI Category';
   
@@ -186,7 +181,7 @@ const BmiCalc: React.FC = () => {
               <IonCol>
         {/*  CALLS THE CALLING CARD THAT SHOWS THE RESULTS */}
                 {show &&  
-                  <BmiResults bmiVal = {calculatedBMI} bmiCat = {bmiCategory} first = {first} />
+                  <BmiResults bmiVal = {calculatedBMI} bmiCat = {bmiCategory} />
                   // <BmiResults></BmiResults>
                  /*  <IonCard class = 'ion-text-center'>
                     <IonCardContent>
